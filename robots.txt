@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://reyhanakbar.pages.dev/sitemap.xml
+Sitemap: https://reystudio.web.id/sitemap.xml
