@@ -1,6 +1,5 @@
 /* ==========================================================================
-   OFFICIAL FRAMER DESIGN SYSTEM TOKENS & STYLESHEET
-   Extracted from Framer.com Architecture Specification (v.alpha)
+   OFFICIAL FRAMER DESIGN SYSTEM STYLESHEET & ANIMATIONS (v.alpha)
    Client: Muhammad Reyhan Akbar Syahputra (reystudio.web.id)
    ========================================================================== */
 
@@ -13,13 +12,13 @@
 
   /* Framer Dark Palette (Default) */
   --color-canvas: #000000;
-  --color-surface: #0B0E14;
-  --color-surface-raised: #141414;
+  --color-surface: #0A0D14;
+  --color-surface-raised: #141720;
   --color-surface-card: #0E121B;
   --color-primary: #0066FF;
   --color-primary-hover: #0052CC;
-  --color-primary-glow: rgba(0, 102, 255, 0.15);
-  --color-link: #0000EE;
+  --color-primary-glow: rgba(0, 102, 255, 0.18);
+  --color-link: #0066FF;
   --color-ink: #FFFFFF;
   --color-body: #999999;
   --color-muted: #666666;
@@ -28,7 +27,7 @@
   --color-neutral-1: #222222;
 
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(0, 102, 255, 0.4);
+  --color-border-hover: rgba(0, 102, 255, 0.5);
   --color-input-bg: rgba(255, 255, 255, 0.03);
   --color-input-border: rgba(255, 255, 255, 0.12);
 
@@ -38,7 +37,7 @@
   --rounded-sm: 6px;
   --rounded-md: 8px;
   --rounded-lg: 16px;
-  --rounded-xl: 20px;
+  --rounded-xl: 24px;
   --rounded-full: 9999px;
 
   /* Shadows */
@@ -46,7 +45,7 @@
   --shadow-glow: 0 0 25px rgba(0, 102, 255, 0.2);
 
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Framer Light Palette */
@@ -115,6 +114,19 @@ button, input, textarea {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* ==================== FRAMER SCROLL REVEAL ANIMATIONS ==================== */
+.framer-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.framer-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ==================== FRAMER NAVIGATION (64PX) ==================== */
@@ -241,6 +253,7 @@ button, input, textarea {
 .btn-primary-nav:hover {
   background: var(--color-primary-hover);
   box-shadow: 0 4px 12px rgba(0, 102, 255, 0.35);
+  transform: translateY(-1px);
 }
 
 .mobile-toggle {
@@ -254,7 +267,7 @@ button, input, textarea {
   cursor: pointer;
 }
 
-/* ==================== HERO SECTION (FRAMER TYPOGRAPHY & SPOTLIGHT) ==================== */
+/* ==================== HERO SECTION ==================== */
 .hero-section {
   padding: 4.5rem 0 5.5rem;
   border-bottom: 1px solid var(--color-border);
@@ -269,37 +282,6 @@ button, input, textarea {
   align-items: center;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 12px;
-  background: rgba(0, 102, 255, 0.08);
-  border: 1px solid rgba(0, 102, 255, 0.25);
-  border-radius: var(--rounded-full);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--color-primary);
-  letter-spacing: 0.04em;
-  margin-bottom: 1.5rem;
-}
-
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--color-accent-1);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--color-accent-1);
-  animation: pulseDot 2s infinite ease-in-out;
-}
-
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
-}
-
-/* Exact Framer Display Typography */
 .hero-title {
   font-size: clamp(38px, 5.2vw, 54px);
   font-weight: 500;
@@ -336,7 +318,7 @@ button, input, textarea {
   font-size: 15px;
   font-weight: 400;
   color: var(--color-body);
-  line-height: 1.6;
+  line-height: 1.65;
   max-width: 520px;
   letter-spacing: -0.2px;
   margin-bottom: 2rem;
@@ -396,9 +378,10 @@ button, input, textarea {
   border-color: var(--color-primary);
   background: var(--color-primary-glow);
   color: var(--color-primary);
+  transform: translateY(-1px);
 }
 
-/* ==================== DRAMATIC STUDIO SPOTLIGHT CONTAINER ==================== */
+/* ==================== DRAMATIC SPOTLIGHT HALF-BODY FRAME (FACE FOCUSED) ==================== */
 .hero-visual {
   position: relative;
   width: 100%;
@@ -407,9 +390,14 @@ button, input, textarea {
   border-radius: var(--rounded-xl);
   overflow: hidden;
   border: 1px solid var(--color-border);
-  background: radial-gradient(ellipse at 50% 0%, rgba(0, 102, 255, 0.3) 0%, rgba(11, 14, 20, 0.95) 65%, #000000 100%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 102, 255, 0.32) 0%, rgba(10, 13, 20, 0.96) 65%, #000000 100%);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: border-color var(--transition-smooth);
+  transition: border-color var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.hero-visual:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
 }
 
 [data-theme="light"] .hero-visual {
@@ -419,24 +407,24 @@ button, input, textarea {
 
 .spotlight-beam {
   position: absolute;
-  top: -50px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
+  width: 240px;
   height: 260px;
-  background: radial-gradient(ellipse at center top, rgba(0, 153, 255, 0.48) 0%, rgba(0, 102, 255, 0.15) 50%, transparent 80%);
-  filter: blur(26px);
+  background: radial-gradient(ellipse at center top, rgba(0, 153, 255, 0.5) 0%, rgba(0, 102, 255, 0.15) 50%, transparent 80%);
+  filter: blur(24px);
   pointer-events: none;
   z-index: 2;
 }
 
 .spotlight-ambient-glow {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   background: radial-gradient(circle, rgba(0, 102, 255, 0.25) 0%, transparent 70%);
   filter: blur(40px);
   pointer-events: none;
@@ -446,9 +434,9 @@ button, input, textarea {
 .portrait-spotlight-wrapper {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 520px;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start; /* Ensures head & face sit comfortably in top half */
   justify-content: center;
   overflow: hidden;
   z-index: 3;
@@ -456,10 +444,10 @@ button, input, textarea {
 
 .portrait-image-spotlight {
   width: 100%;
-  height: 125%;
+  height: 100%;
   object-fit: cover;
-  object-position: center 2%;
-  filter: contrast(114%) brightness(90%) saturate(92%);
+  object-position: 50% 0%; /* Top center alignment - 100% focused on face & upper body */
+  filter: contrast(112%) brightness(92%) saturate(95%);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
 }
 
@@ -471,13 +459,13 @@ button, input, textarea {
 .portrait-bottom-vignette {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--color-canvas) 0%, rgba(0, 0, 0, 0.6) 20%, transparent 60%);
+  background: linear-gradient(to top, var(--color-canvas) 0%, rgba(0, 0, 0, 0.7) 18%, transparent 55%);
   pointer-events: none;
   z-index: 4;
 }
 
 [data-theme="light"] .portrait-bottom-vignette {
-  background: linear-gradient(to top, rgba(247, 250, 255, 0.95) 0%, rgba(247, 250, 255, 0.3) 25%, transparent 65%);
+  background: linear-gradient(to top, rgba(247, 250, 255, 0.95) 0%, rgba(247, 250, 255, 0.4) 20%, transparent 60%);
 }
 
 /* ==================== SERVICES STRIP (FRAMER TILES) ==================== */
@@ -507,7 +495,8 @@ button, input, textarea {
 .service-card:hover {
   border-color: var(--color-primary);
   background: var(--color-surface-raised);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
 }
 
 .service-card-top {
@@ -660,8 +649,8 @@ button, input, textarea {
 
 .project-framer-card:hover {
   border-color: var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .card-tall {
@@ -774,7 +763,7 @@ button, input, textarea {
 
 .insta-framer-card:hover {
   border-color: var(--color-primary);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1052,97 +1041,145 @@ button, input, textarea {
   line-height: 1.6;
 }
 
-/* ==================== ELEGANT MINIMALIST CONTACT (FRAMER COMPONENT) ==================== */
+/* ==================== REDESIGNED FRAMER CONTACT SECTION (IMAGE 2) ==================== */
 .contact-section {
-  padding: 54px 0;
+  padding: 60px 0;
   border-bottom: 1px solid var(--color-border);
 }
 
-.contact-card-wrapper {
-  background: var(--color-surface);
+.framer-contact-card {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 102, 255, 0.14) 0%, rgba(10, 13, 20, 0.98) 70%, #000000 100%), var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--rounded-xl);
+  padding: 54px 44px;
+  max-width: 960px;
+  margin: 0 auto;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transition: border-color var(--transition-smooth);
 }
 
-.contact-info-panel {
-  padding: 40px;
-  border-right: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.framer-contact-card:hover {
+  border-color: var(--color-border-hover);
 }
 
-.contact-main-heading {
-  font-size: clamp(24px, 3.2vw, 36px);
+[data-theme="light"] .framer-contact-card {
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 102, 255, 0.1) 0%, rgba(237, 240, 245, 0.98) 70%, #FFFFFF 100%), #FFFFFF;
+  box-shadow: 0 10px 30px rgba(0, 102, 255, 0.08);
+}
+
+.framer-contact-glow {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.3) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-header-center {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-hero-heading {
+  font-size: clamp(28px, 3.8vw, 42px);
   font-weight: 500;
-  letter-spacing: -1px;
+  letter-spacing: -1.76px;
   color: var(--color-ink);
-  margin-bottom: 8px;
+  line-height: 1.15;
+  margin-bottom: 12px;
 }
 
-.contact-subtext {
+.contact-hero-desc {
   font-size: 14px;
   color: var(--color-body);
   line-height: 1.65;
-  margin-bottom: 28px;
 }
 
-.contact-direct-links {
+/* Quick Contact Strip */
+.quick-contact-strip {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.direct-contact-item {
-  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--rounded-md);
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-action-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
   background: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--rounded-full);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-ink);
   transition: all var(--transition-fast);
 }
 
-.direct-contact-item:hover {
+.contact-action-pill:hover {
   border-color: var(--color-primary);
   background: var(--color-primary-glow);
+  color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
-.direct-icon-box {
-  font-size: 14px;
+.wa-pill i {
+  color: #00BB88;
+}
+
+.mail-pill i {
   color: var(--color-primary);
 }
 
-.direct-label {
-  font-size: 11px;
-  color: var(--color-muted);
-  display: block;
+.ig-pill i {
+  color: #E1306C;
 }
 
-.direct-value {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-ink);
+.pill-arrow {
+  font-size: 10px;
+  color: var(--color-body);
 }
 
-.contact-form-panel {
-  padding: 40px;
+/* Form Container */
+.contact-form-container {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-.framer-form {
+.framer-minimal-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
+}
+
+.form-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
 }
 
 .form-field-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  text-align: left;
 }
 
 .form-label {
@@ -1184,13 +1221,13 @@ button, input, textarea {
   resize: vertical;
 }
 
-.btn-submit-framer {
+.btn-submit-framer-lg {
   background: var(--color-primary);
   color: #FFFFFF;
   border: none;
   border-radius: var(--rounded-md);
-  padding: 10px 18px;
-  height: 38px;
+  padding: 12px 24px;
+  height: 42px;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -1203,9 +1240,10 @@ button, input, textarea {
   box-shadow: var(--shadow-sm);
 }
 
-.btn-submit-framer:hover {
+.btn-submit-framer-lg:hover {
   background: var(--color-primary-hover);
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.4);
+  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.4);
+  transform: translateY(-1px);
 }
 
 /* ==================== SITE FOOTER ==================== */
@@ -1382,16 +1420,8 @@ button, input, textarea {
     grid-row: auto;
     min-height: 300px;
   }
-  .about-grid, .contact-card-wrapper {
+  .about-grid {
     grid-template-columns: 1fr;
-  }
-  .contact-info-panel {
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-    padding: 32px;
-  }
-  .contact-form-panel {
-    padding: 32px;
   }
 }
 
@@ -1437,7 +1467,10 @@ button, input, textarea {
   .instagram-framer-grid {
     grid-template-columns: 1fr;
   }
-  .contact-info-panel, .contact-form-panel {
-    padding: 24px 20px;
+  .framer-contact-card {
+    padding: 32px 20px;
+  }
+  .form-row-two {
+    grid-template-columns: 1fr;
   }
 }
