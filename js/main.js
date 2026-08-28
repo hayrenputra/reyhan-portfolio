@@ -1,6 +1,6 @@
 /**
  * =========================================================================
- * JAVASCRIPT CONTROLLER - REYHAN.DEV® (HARDENED & SECURE)
+ * JAVASCRIPT CONTROLLER - FRAMER AESTHETIC & HARDENED SECURITY
  * MUHAMMAD REYHAN AKBAR SYAHPUTRA
  * =========================================================================
  */
@@ -27,32 +27,32 @@ function escapeHTML(str) {
   );
 }
 
-/* --- Theme Toggle Controller --- */
+/* --- Theme Toggle Controller (Framer Dark / Light) --- */
 function setupThemeToggle() {
   const btn = document.getElementById('theme-toggle');
   const icon = document.getElementById('theme-icon');
   if (!btn) return;
 
-  const currentTheme = localStorage.getItem('brutal_theme') || 'light';
+  const currentTheme = localStorage.getItem('framer_theme') || 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
   updateIcon(currentTheme);
 
   btn.addEventListener('click', () => {
-    const active = document.documentElement.getAttribute('data-theme') || 'light';
-    const next = active === 'light' ? 'dark' : 'light';
+    const active = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = active === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     try {
-      localStorage.setItem('brutal_theme', next);
+      localStorage.setItem('framer_theme', next);
     } catch (e) {
-      // Storage access gracefully handled
+      // Storage access handled gracefully
     }
     updateIcon(next);
-    showToast(`MODE ${next === 'dark' ? 'GELAP 🌙' : 'TERANG ☀️'} DIAKTIFKAN`);
+    showToast(`Tema ${next === 'dark' ? 'Gelap (Dark Mode)' : 'Terang (Light Mode)'} Aktif`);
   });
 
   function updateIcon(th) {
     if (!icon) return;
-    icon.className = th === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    icon.className = th === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
   }
 }
 
@@ -73,7 +73,7 @@ function setupMobileMenu() {
   });
 }
 
-/* --- Project Modal Dialog (Secure Rendering) --- */
+/* --- Project Modal Dialog (Framer Minimalist) --- */
 function setupProjectModal() {
   const overlay = document.getElementById('project-modal');
   const closeBtn = document.getElementById('modal-close-btn');
@@ -106,60 +106,59 @@ window.openProjectModal = function(id) {
   const overlay = document.getElementById('project-modal');
   const content = document.getElementById('modal-dynamic-content');
 
-  // Build clean sanitized HTML
   content.innerHTML = `
-    <div style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: var(--color-blue-primary); margin-bottom: 0.6rem; text-transform: uppercase;">
+    <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; color: var(--color-primary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">
       // STUDI KASUS PROYEK — ${escapeHTML(project.categoryLabel)}
     </div>
     
-    <h2 id="modal-title" style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 3.8vw, 2.6rem); text-transform: uppercase; line-height: 1.15; margin-bottom: 1.5rem;">
+    <h2 id="modal-title" style="font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1.5rem; color: var(--color-ink);">
       ${escapeHTML(project.title)}
     </h2>
 
-    <div style="width: 100%; height: 320px; border: 2px solid var(--border-ui); overflow: hidden; margin-bottom: 2rem; background: #0A0A0A;">
+    <div style="width: 100%; height: 320px; border-radius: var(--radius-lg); border: 1px solid var(--color-border); overflow: hidden; margin-bottom: 2rem; background: #000000;">
       <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)}" style="width: 100%; height: 100%; object-fit: cover;">
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.25rem; border: 2px solid var(--border-ui); padding: 1.5rem; margin-bottom: 2rem; background: var(--bg-alt);">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.25rem; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 2rem; background: var(--color-input-bg);">
       <div>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">KLIEN / INSTANSI</div>
-        <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; margin-top: 0.25rem;">${escapeHTML(project.client)}</div>
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-muted); text-transform: uppercase;">Klien / Instansi</div>
+        <div style="font-weight: 600; font-size: 0.98rem; margin-top: 0.25rem; color: var(--color-ink);">${escapeHTML(project.client)}</div>
       </div>
       <div>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">DURASI</div>
-        <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; margin-top: 0.25rem;">${escapeHTML(project.duration)}</div>
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-muted); text-transform: uppercase;">Durasi</div>
+        <div style="font-weight: 600; font-size: 0.98rem; margin-top: 0.25rem; color: var(--color-ink);">${escapeHTML(project.duration)}</div>
       </div>
       <div>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">PERAN UTAMA</div>
-        <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; margin-top: 0.25rem;">${escapeHTML(project.role)}</div>
+        <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-muted); text-transform: uppercase;">Peran Utama</div>
+        <div style="font-weight: 600; font-size: 0.98rem; margin-top: 0.25rem; color: var(--color-ink);">${escapeHTML(project.role)}</div>
       </div>
     </div>
 
     <div style="margin-bottom: 2rem;">
-      <h3 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem;">RINGKASAN & DESKRIPSI</h3>
-      <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-main);">${escapeHTML(project.description)}</p>
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--color-ink);">Ringkasan & Deskripsi</h3>
+      <p style="font-size: 0.95rem; line-height: 1.75; color: var(--color-body);">${escapeHTML(project.description)}</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-      <div style="border: 2px solid var(--border-ui); padding: 1.35rem; background: var(--bg-alt);">
-        <div style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: #EF4444; margin-bottom: 0.35rem;">[ TANTANGAN ]</div>
-        <p style="font-size: 0.95rem; line-height: 1.7;">${escapeHTML(project.challenge)}</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2rem;">
+      <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1.25rem; background: var(--color-input-bg);">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; color: #EF4444; margin-bottom: 0.35rem;">[ TANTANGAN ]</div>
+        <p style="font-size: 0.88rem; line-height: 1.65; color: var(--color-body);">${escapeHTML(project.challenge)}</p>
       </div>
-      <div style="border: 2px solid var(--border-ui); padding: 1.35rem; background: var(--color-blue-tint);">
-        <div style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: var(--color-blue-primary); margin-bottom: 0.35rem;">[ SOLUSI ]</div>
-        <p style="font-size: 0.95rem; line-height: 1.7;">${escapeHTML(project.solution)}</p>
+      <div style="border: 1px solid rgba(0, 102, 255, 0.25); border-radius: var(--radius-md); padding: 1.25rem; background: var(--color-primary-glow);">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; color: var(--color-primary); margin-bottom: 0.35rem;">[ SOLUSI ]</div>
+        <p style="font-size: 0.88rem; line-height: 1.65; color: var(--color-ink);">${escapeHTML(project.solution)}</p>
       </div>
     </div>
 
     <div style="margin-bottom: 2.25rem;">
-      <h4 style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; margin-bottom: 0.75rem;">TOOLS & TEKNOLOGI</h4>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-        ${project.tags.map(t => `<span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; background: var(--color-blue-tint); border: 1px solid var(--color-blue-primary); color: var(--color-blue-primary);">${escapeHTML(t)}</span>`).join('')}
+      <h4 style="font-size: 0.92rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--color-ink);">Teknologi & Tools</h4>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+        ${project.tags.map(t => `<span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; padding: 4px 10px; background: var(--color-primary-glow); border: 1px solid rgba(0, 102, 255, 0.25); border-radius: var(--radius-xs); color: var(--color-primary);">${escapeHTML(t)}</span>`).join('')}
       </div>
     </div>
 
-    <a href="https://wa.me/${portfolioData.profile.whatsapp}?text=${encodeURIComponent('Halo Reyhan, saya ingin mendiskusikan tentang proyek ' + project.title)}" target="_blank" rel="noopener noreferrer" class="btn-statement-blue" style="box-shadow: none; font-size: 0.92rem; padding: 1rem 2rem;">
-      <i class="fab fa-whatsapp"></i> <span>DISKUSIKAN KARYA INI</span> <span>↗</span>
+    <a href="https://wa.me/${portfolioData.profile.whatsapp}?text=${encodeURIComponent('Halo Reyhan, saya ingin mendiskusikan tentang proyek ' + project.title)}" target="_blank" rel="noopener noreferrer" class="btn-framer-primary" style="display: inline-flex; width: auto; font-size: 0.88rem;">
+      <i class="fab fa-whatsapp"></i> <span>Diskusikan Proyek Ini</span> <span>↗</span>
     </a>
   `;
 
@@ -175,7 +174,7 @@ function setupNavigation() {
   };
 }
 
-/* --- Contact Form to WhatsApp (Sanitized) --- */
+/* --- Contact Form to WhatsApp (Sanitized & Validated) --- */
 function setupContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -188,11 +187,10 @@ function setupContactForm() {
     const msg = document.getElementById('form-message').value.trim();
 
     if (!name || !email || !msg) {
-      showToast('HARAP ISI SEMUA KOLOM WAJIB!');
+      showToast('Harap isi semua kolom wajib (*)');
       return;
     }
 
-    // Sanitize lengths to prevent buffer overflow/injection
     const safeName = name.substring(0, 100);
     const safeEmail = email.substring(0, 120);
     const safeSubject = subject.substring(0, 150);
@@ -201,15 +199,15 @@ function setupContactForm() {
     const text = `Halo Reyhan,\n\nNama: ${safeName}\nEmail: ${safeEmail}\nPerihal: ${safeSubject || '-'}\n\nPesan:\n${safeMsg}`;
     const waUrl = `https://wa.me/${portfolioData.profile.whatsapp}?text=${encodeURIComponent(text)}`;
 
-    showToast('MENGARAHKAN KE WHATSAPP REYHAN...');
+    showToast('Mengarahkan ke WhatsApp Reyhan...');
     setTimeout(() => {
       window.open(waUrl, '_blank', 'noopener,noreferrer');
       form.reset();
-    }, 500);
+    }, 400);
   });
 }
 
-/* --- Toast Notification Helper --- */
+/* --- Framer Minimalist Toast Notification --- */
 function showToast(msg) {
   let t = document.getElementById('brutal-toast');
   if (!t) {
@@ -220,5 +218,5 @@ function showToast(msg) {
   }
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
+  setTimeout(() => t.classList.remove('show'), 2800);
 }
