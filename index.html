@@ -93,7 +93,7 @@
   }
   </script>
 
-  <!-- Google Fonts: Inter & JetBrains Mono (Framer Design System) -->
+  <!-- Google Fonts: Inter & JetBrains Mono (Framer & Vetra Design Systems) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -183,7 +183,7 @@
         </div>
 
         <!-- Right Hero Visual: Perfectly Centered Face & Half-Body Under Studio Spotlight -->
-        <div class="hero-visual framer-reveal">
+        <div class="hero-visual framer-reveal vetra-spotlight-card">
           <!-- Spotlight Top Lighting Effect -->
           <div class="spotlight-beam"></div>
           <div class="spotlight-ambient-glow"></div>
@@ -199,12 +199,12 @@
       </div>
     </section>
 
-    <!-- ==================== SERVICES STRIP (FRAMER TILES) ==================== -->
+    <!-- ==================== SERVICES STRIP (VETRA GLASS TILES) ==================== -->
     <section class="services-strip-section" id="services" aria-label="Keahlian Utama">
       <div class="container">
         <div class="services-grid">
           
-          <div class="service-card framer-reveal" onclick="scrollToSection('instagram-clients')">
+          <div class="service-card vetra-spotlight-card framer-reveal" onclick="scrollToSection('instagram-clients')">
             <div class="service-card-top">
               <span class="service-index">01</span>
               <i class="fab fa-instagram service-icon"></i>
@@ -214,7 +214,7 @@
             <div class="service-arrow-link">Lihat Portofolio ↗</div>
           </div>
 
-          <div class="service-card framer-reveal" onclick="scrollToSection('work')">
+          <div class="service-card vetra-spotlight-card framer-reveal" onclick="scrollToSection('work')">
             <div class="service-card-top">
               <span class="service-index">02</span>
               <i class="fas fa-bezier-curve service-icon"></i>
@@ -224,7 +224,7 @@
             <div class="service-arrow-link">Lihat Portofolio ↗</div>
           </div>
 
-          <div class="service-card framer-reveal" onclick="scrollToSection('work')">
+          <div class="service-card vetra-spotlight-card framer-reveal" onclick="scrollToSection('work')">
             <div class="service-card-top">
               <span class="service-index">03</span>
               <i class="fas fa-code service-icon"></i>
@@ -234,7 +234,7 @@
             <div class="service-arrow-link">Lihat Portofolio ↗</div>
           </div>
 
-          <div class="service-card framer-reveal" onclick="scrollToSection('contact')">
+          <div class="service-card vetra-spotlight-card framer-reveal" onclick="scrollToSection('contact')">
             <div class="service-card-top">
               <span class="service-index">04</span>
               <i class="fas fa-video service-icon"></i>
@@ -251,7 +251,7 @@
     <!-- ==================== STATEMENT SHOWCASE BANNER ==================== -->
     <section class="framer-statement-section" aria-label="Filosofi Kerja">
       <div class="container">
-        <div class="statement-card-container framer-reveal">
+        <div class="statement-card-container vetra-spotlight-card framer-reveal">
           <div class="statement-left">
             <span class="statement-pill">// CREATIVE PHILOSOPHY</span>
             <h2 class="statement-title">
@@ -272,19 +272,31 @@
       </div>
     </section>
 
-    <!-- ==================== FEATURED WORK (FRAMER CARDS) ==================== -->
+    <!-- ==================== FEATURED WORK (VETRA INTERACTIVE FILTER & CARDS) ==================== -->
     <section class="projects-section" id="work" aria-label="Proyek Terpilih">
       <div class="container">
         <div class="section-header-wrap framer-reveal">
-          <span class="section-kicker">// FEATURED CASE STUDIES</span>
-          <h2 class="section-title">Portofolio & Proyek Pilihan</h2>
-          <p class="section-subtitle">Studi kasus nyata dari pengembangan sistem informasi web hingga visual branding korporat.</p>
+          <div class="section-header-flex">
+            <div>
+              <span class="section-kicker">// FEATURED CASE STUDIES</span>
+              <h2 class="section-title">Portofolio & Proyek Pilihan</h2>
+              <p class="section-subtitle">Studi kasus nyata dari pengembangan sistem informasi web hingga visual branding korporat.</p>
+            </div>
+            
+            <!-- Vetra-style Interactive Category Filters -->
+            <div class="portfolio-filter-pills" id="project-filters">
+              <button type="button" class="filter-pill active" data-filter="all">Semua Proyek</button>
+              <button type="button" class="filter-pill" data-filter="web">Web & Coding</button>
+              <button type="button" class="filter-pill" data-filter="branding">Branding</button>
+              <button type="button" class="filter-pill" data-filter="video">Video Production</button>
+            </div>
+          </div>
         </div>
 
-        <div class="projects-framer-grid">
+        <div class="projects-framer-grid" id="projects-grid">
 
           <!-- 01 / SIWARGA - Sistem Informasi RW 10 (Tall Hero Card) -->
-          <article class="project-framer-card card-tall framer-reveal" onclick="openProjectModal(1)">
+          <article class="project-framer-card card-tall vetra-spotlight-card framer-reveal" data-category="web" onclick="openProjectModal(1)">
             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Sistem Informasi Warga RW 10 Pondok Jati" class="project-bg-img" loading="lazy">
             <div class="project-card-overlay"></div>
             
@@ -301,7 +313,7 @@
           </article>
 
           <!-- 02 / ENSUGI HOLDING -->
-          <article class="project-framer-card framer-reveal" onclick="openProjectModal(2)">
+          <article class="project-framer-card vetra-spotlight-card framer-reveal" data-category="branding" onclick="openProjectModal(2)">
             <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80" alt="Ensugi Holding Branding" class="project-bg-img" loading="lazy">
             <div class="project-card-overlay"></div>
             
@@ -318,7 +330,7 @@
           </article>
 
           <!-- 03 / MASJID AL-AKBAR -->
-          <article class="project-framer-card framer-reveal" onclick="openProjectModal(3)">
+          <article class="project-framer-card vetra-spotlight-card framer-reveal" data-category="branding" onclick="openProjectModal(3)">
             <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=1200&q=80" alt="Masjid Al-Akbar Sidoarjo Event Media" class="project-bg-img" loading="lazy">
             <div class="project-card-overlay"></div>
             
@@ -335,7 +347,7 @@
           </article>
 
           <!-- 04 / VIDEO PRODUCTION (Wide Card) -->
-          <article class="project-framer-card card-wide framer-reveal" onclick="openProjectModal(4)">
+          <article class="project-framer-card card-wide vetra-spotlight-card framer-reveal" data-category="video" onclick="openProjectModal(4)">
             <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80" alt="YouTube Boxing and SMA Awards Video Production" class="project-bg-img" loading="lazy">
             <div class="project-card-overlay"></div>
             
@@ -355,7 +367,7 @@
       </div>
     </section>
 
-    <!-- ==================== INSTAGRAM CLIENTS SECTION (FRAMER CLEAN GRID) ==================== -->
+    <!-- ==================== INSTAGRAM CLIENTS SECTION (FRAMER & VETRA GRID) ==================== -->
     <section class="instagram-section" id="instagram-clients" aria-label="Portofolio Pengelolaan Akun Instagram">
       <div class="container">
         <div class="section-header-wrap framer-reveal">
@@ -367,7 +379,7 @@
         <div class="instagram-framer-grid">
           
           <!-- 1. Sumo Rental Bali -->
-          <article class="insta-framer-card framer-reveal">
+          <article class="insta-framer-card vetra-spotlight-card framer-reveal">
             <div class="insta-img-container">
               <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80" alt="Sumo Rental Bali" class="insta-img" loading="lazy">
               <span class="insta-category-tag">Car Rental Bali</span>
@@ -387,7 +399,7 @@
           </article>
 
           <!-- 2. Chery Dwipa Bali -->
-          <article class="insta-framer-card framer-reveal">
+          <article class="insta-framer-card vetra-spotlight-card framer-reveal">
             <div class="insta-img-container">
               <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" alt="Chery Dwipa Bali" class="insta-img" loading="lazy">
               <span class="insta-category-tag">Otomotif & Dealer</span>
@@ -407,7 +419,7 @@
           </article>
 
           <!-- 3. Treven Collection -->
-          <article class="insta-framer-card framer-reveal">
+          <article class="insta-framer-card vetra-spotlight-card framer-reveal">
             <div class="insta-img-container">
               <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" alt="Treven Collection" class="insta-img" loading="lazy">
               <span class="insta-category-tag">Fashion & Lifestyle</span>
@@ -427,7 +439,7 @@
           </article>
 
           <!-- 4. Arena Glamour -->
-          <article class="insta-framer-card framer-reveal">
+          <article class="insta-framer-card vetra-spotlight-card framer-reveal">
             <div class="insta-img-container">
               <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80" alt="Arena Glamour" class="insta-img" loading="lazy">
               <span class="insta-category-tag">Event Organizer</span>
@@ -447,7 +459,7 @@
           </article>
 
           <!-- 5. Ensugi Holding -->
-          <article class="insta-framer-card framer-reveal">
+          <article class="insta-framer-card vetra-spotlight-card framer-reveal">
             <div class="insta-img-container">
               <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Ensugi Holding" class="insta-img" loading="lazy">
               <span class="insta-category-tag">Corporate Holding</span>
@@ -513,19 +525,19 @@
           </div>
 
           <div class="about-metrics-grid framer-reveal">
-            <div class="metric-card">
+            <div class="metric-card vetra-spotlight-card">
               <div class="metric-num">02+</div>
               <div class="metric-label">Tahun Pengalaman Desain & Sosmed</div>
             </div>
-            <div class="metric-card metric-card-accent">
+            <div class="metric-card metric-card-accent vetra-spotlight-card">
               <div class="metric-num">05+</div>
               <div class="metric-label">Akun Brand Instagram Dikelola</div>
             </div>
-            <div class="metric-card">
+            <div class="metric-card vetra-spotlight-card">
               <div class="metric-num">UMSIDA</div>
               <div class="metric-label">S1 Teknik Informatika (2021 - Sekarang)</div>
             </div>
-            <div class="metric-card">
+            <div class="metric-card vetra-spotlight-card">
               <div class="metric-num">100%</div>
               <div class="metric-label">Dedikasi & Kolaborasi Tim</div>
             </div>
@@ -546,7 +558,7 @@
 
         <div class="timeline-framer-list">
 
-          <div class="timeline-card framer-reveal">
+          <div class="timeline-card vetra-spotlight-card framer-reveal">
             <div class="timeline-meta">
               <span class="timeline-badge">MEI 2024 - SEKARANG</span>
               <span class="timeline-type">PENGALAMAN KERJA</span>
@@ -558,7 +570,7 @@
             </div>
           </div>
 
-          <div class="timeline-card framer-reveal">
+          <div class="timeline-card vetra-spotlight-card framer-reveal">
             <div class="timeline-meta">
               <span class="timeline-badge">2023 - 2024</span>
               <span class="timeline-type">FREELANCE CLIENTS</span>
@@ -570,7 +582,7 @@
             </div>
           </div>
 
-          <div class="timeline-card framer-reveal">
+          <div class="timeline-card vetra-spotlight-card framer-reveal">
             <div class="timeline-meta">
               <span class="timeline-badge">SEP 2021 - SEKARANG</span>
               <span class="timeline-type">PENDIDIKAN FORMAL</span>
@@ -582,7 +594,7 @@
             </div>
           </div>
 
-          <div class="timeline-card framer-reveal">
+          <div class="timeline-card vetra-spotlight-card framer-reveal">
             <div class="timeline-meta">
               <span class="timeline-badge">APR 2022 - AGU 2023</span>
               <span class="timeline-type">FREELANCE MULTIMEDIA</span>
@@ -598,12 +610,12 @@
       </div>
     </section>
 
-    <!-- ==================== REDESIGNED FRAMER CONTACT & CONSULTATION (IMAGE 2 REDESIGN) ==================== -->
+    <!-- ==================== REDESIGNED FRAMER & VETRA CONTACT SECTION ==================== -->
     <section class="contact-section" id="contact" aria-label="Kontak dan Diskusi Proyek">
       <div class="container">
         
-        <!-- Framer Centered Showcase CTA Card -->
-        <div class="framer-contact-card framer-reveal">
+        <!-- Framer Centered Showcase CTA Card with Vetra Spotlight -->
+        <div class="framer-contact-card vetra-spotlight-card framer-reveal">
           <div class="framer-contact-glow"></div>
           
           <div class="contact-header-center">
@@ -614,7 +626,7 @@
             </p>
           </div>
 
-          <!-- Quick Action Buttons Strip -->
+          <!-- Quick Action Buttons Strip with 1-Click Copy -->
           <div class="quick-contact-strip">
             <a href="https://wa.me/6281231910568" target="_blank" rel="noopener noreferrer" class="contact-action-pill wa-pill">
               <i class="fab fa-whatsapp"></i>
@@ -622,11 +634,11 @@
               <i class="fas fa-arrow-up-right pill-arrow">↗</i>
             </a>
 
-            <a href="mailto:syahputraakbar0702@gmail.com" class="contact-action-pill mail-pill">
+            <button type="button" class="contact-action-pill mail-pill" id="btn-copy-email" title="Klik untuk salin email">
               <i class="fas fa-envelope"></i>
-              <span>syahputraakbar0702@gmail.com</span>
-              <i class="fas fa-arrow-up-right pill-arrow">↗</i>
-            </a>
+              <span id="copy-email-text">syahputraakbar0702@gmail.com</span>
+              <i class="far fa-copy pill-arrow"></i>
+            </button>
 
             <a href="https://instagram.com/arc_anyx" target="_blank" rel="noopener noreferrer" class="contact-action-pill ig-pill">
               <i class="fab fa-instagram"></i>

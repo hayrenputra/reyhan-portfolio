@@ -1,18 +1,89 @@
 /**
  * =========================================================================
- * JAVASCRIPT CONTROLLER - FRAMER AESTHETIC & SCROLL ANIMATIONS
+ * JAVASCRIPT CONTROLLER - FRAMER & VETRA DESIGN SYSTEM
  * MUHAMMAD REYHAN AKBAR SYAHPUTRA
  * =========================================================================
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   setupScrollAnimations();
+  setupVetraSpotlight();
+  setupProjectFilters();
+  setupCopyEmail();
   setupThemeToggle();
   setupProjectModal();
   setupContactForm();
   setupNavigation();
   setupMobileMenu();
 });
+
+/* --- Vetra Mouse Spotlight Card Glow (21st.dev / Vetra interaction) --- */
+function setupVetraSpotlight() {
+  const cards = document.querySelectorAll('.vetra-spotlight-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+/* --- Vetra Category Filter Tabs --- */
+function setupProjectFilters() {
+  const filterBtns = document.querySelectorAll('#project-filters .filter-pill');
+  const projectCards = document.querySelectorAll('#projects-grid .project-framer-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.classList.remove('is-hidden');
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+    });
+  });
+}
+
+/* --- 1-Click Copy Email Pill --- */
+function setupCopyEmail() {
+  const copyBtn = document.getElementById('btn-copy-email');
+  const textSpan = document.getElementById('copy-email-text');
+  if (!copyBtn || !textSpan) return;
+
+  copyBtn.addEventListener('click', () => {
+    const email = "syahputraakbar0702@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      const original = textSpan.textContent;
+      textSpan.textContent = "Email Berhasil Disalin! ✓";
+      copyBtn.style.borderColor = "var(--color-primary)";
+      copyBtn.style.color = "var(--color-primary)";
+      showToast("Alamat email disalin ke clipboard ✓");
+
+      setTimeout(() => {
+        textSpan.textContent = original;
+        copyBtn.style.borderColor = "";
+        copyBtn.style.color = "";
+      }, 2500);
+    }).catch(() => {
+      window.location.href = `mailto:${email}`;
+    });
+  });
+}
 
 /* --- Framer Scroll Reveal Controller --- */
 function setupScrollAnimations() {
@@ -22,7 +93,6 @@ function setupScrollAnimations() {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
-          // Subtle staggered delay
           setTimeout(() => {
             entry.target.classList.add('is-revealed');
           }, (idx % 4) * 80);
@@ -30,13 +100,12 @@ function setupScrollAnimations() {
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -30px 0px'
     });
 
     revealElements.forEach(el => observer.observe(el));
   } else {
-    // Fallback if observer not supported
     revealElements.forEach(el => el.classList.add('is-revealed'));
   }
 }
@@ -101,7 +170,7 @@ function setupMobileMenu() {
   });
 }
 
-/* --- Project Modal Dialog (Framer Minimalist) --- */
+/* --- Project Modal Dialog (Framer & Vetra Minimalist) --- */
 function setupProjectModal() {
   const overlay = document.getElementById('project-modal');
   const closeBtn = document.getElementById('modal-close-btn');
