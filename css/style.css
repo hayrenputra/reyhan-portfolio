@@ -791,62 +791,52 @@ button, input, textarea {
   color: var(--color-primary);
 }
 
-/* ==================== INSTAGRAM & BRAND SHOWCASE (9 MONOCHROME CARDS) ==================== */
-.brand-showcase-section {
-  padding: 54px 0;
+/* ==================== PURE MONOCHROME LOGO TILES (HANYA LOGO SAJA) ==================== */
+.brand-logos-pure-section {
+  padding: 60px 0;
   border-bottom: 1px solid var(--color-border);
 }
 
-.brand-cards-grid {
+.brand-pure-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 16px;
+  margin-top: 12px;
 }
 
-.brand-framer-card {
+.pure-logo-card {
+  height: 120px;
   border: 1px solid var(--color-border);
   border-radius: var(--rounded-lg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  background: var(--color-surface);
-  transition: all var(--transition-fast);
-}
-
-.brand-framer-card:hover {
-  border-color: var(--color-primary);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-}
-
-.brand-card-logo-area {
-  height: 135px;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, rgba(0, 102, 255, 0.12) 0%, rgba(10, 13, 20, 0.95) 75%), var(--color-canvas);
-  border-bottom: 1px solid var(--color-border);
-  padding: 20px;
+  padding: 22px 28px;
+  background: var(--color-surface);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  cursor: pointer;
   position: relative;
   overflow: hidden;
 }
 
-[data-theme="light"] .brand-card-logo-area {
-  background: radial-gradient(circle at center, rgba(0, 102, 255, 0.08) 0%, rgba(240, 243, 248, 0.95) 75%), #F7FAFF;
+.pure-logo-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-.brand-monochrome-logo {
-  max-width: 140px;
-  max-height: 75px;
+.pure-logo-img {
+  max-width: 160px;
+  max-height: 65px;
   width: auto;
   height: auto;
   object-fit: contain;
   transition: transform var(--transition-fast);
 }
 
-.brand-framer-card:hover .brand-monochrome-logo {
-  transform: scale(1.06);
+.pure-logo-card:hover .pure-logo-img {
+  transform: scale(1.08);
 }
 
 /* Monochrome Theme Adaptive Logo Filtering */
@@ -868,71 +858,6 @@ button, input, textarea {
 [data-theme="light"] .logo-dark-bg {
   filter: invert(1) grayscale(100%) brightness(0.2);
   mix-blend-mode: multiply;
-}
-
-.brand-card-content {
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.brand-card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.brand-ig-icon {
-  color: #E1306C;
-  font-size: 14px;
-}
-
-.brand-ig-link {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--color-primary);
-  transition: color var(--transition-fast);
-}
-
-.brand-ig-link:hover {
-  text-decoration: underline;
-}
-
-.brand-card-title {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.3px;
-  color: var(--color-ink);
-  margin-bottom: 6px;
-}
-
-.brand-card-desc {
-  font-size: 13px;
-  color: var(--color-body);
-  line-height: 1.6;
-  margin-bottom: 18px;
-  flex-grow: 1;
-}
-
-.brand-card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: auto;
-}
-
-.brand-card-tags span {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  padding: 3px 8px;
-  background: var(--color-primary-glow);
-  border: 1px solid rgba(0, 102, 255, 0.2);
-  border-radius: var(--rounded-xs);
-  color: var(--color-primary);
 }
 
 /* ==================== TICKER MARQUEE ==================== */
@@ -1488,8 +1413,8 @@ button, input, textarea {
     grid-row: auto;
     min-height: 300px;
   }
-  .brand-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .brand-pure-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
   .about-grid {
     grid-template-columns: 1fr;
@@ -1531,8 +1456,17 @@ button, input, textarea {
   .card-wide {
     grid-column: span 1;
   }
-  .brand-cards-grid {
-    grid-template-columns: 1fr;
+  .brand-pure-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .pure-logo-card {
+    height: 95px;
+    padding: 16px;
+  }
+  .pure-logo-img {
+    max-width: 120px;
+    max-height: 48px;
   }
   .about-metrics-grid {
     grid-template-columns: 1fr;
