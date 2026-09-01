@@ -367,66 +367,79 @@
       </div>
     </section>
 
-    <!-- ==================== PURE MONOCHROME LOGO SHOWCASE (HANYA LOGO SAJA) ==================== -->
+    <!-- ==================== PURE MONOCHROME LOGO SHOWCASE (KLIK LOGO = POPUP PENJELASAN) ==================== -->
     <section class="brand-logos-pure-section" id="brands-clients" aria-label="Brand & Klien yang Pernah Ditangani">
       <div class="container">
         <div class="section-header-wrap framer-reveal">
           <span class="section-kicker">// CLIENTS & MANAGED BRANDS</span>
           <h2 class="section-title">Brand yang Pernah Saya Tangani</h2>
-          <p class="section-subtitle">Deretan brand dan bisnis terpercaya yang mempercayakan identitas visual, materi promosi, dan pengelolaan media sosialnya.</p>
+          <p class="section-subtitle">Klik logo untuk melihat detail peran dan layanan yang diberikan.</p>
         </div>
 
-        <!-- Clean Symmetrical 9 Logo Tiles (Hanya Logo Saja) -->
+        <!-- 9 Logo Tiles — Klik untuk Popup Detail -->
         <div class="brand-pure-grid framer-reveal">
           
-          <!-- 1. Arena Glamour Sports Center -->
-          <a href="https://www.instagram.com/arenaglamour/?__pwa=1#" target="_blank" rel="noopener noreferrer" class="pure-logo-card vetra-spotlight-card" title="Arena Glamour Sports Center">
+          <div class="pure-logo-card vetra-spotlight-card" title="Arena Glamour Sports Center" onclick="openBrandModal(0)">
             <img src="assets/logos/logo-arena-glamour.png" alt="Arena Glamour Sports Center" class="pure-logo-img logo-white-bg" loading="lazy">
-          </a>
+          </div>
 
-          <!-- 2. Glamour Fight Academy (AG) -->
-          <a href="https://www.instagram.com/arenaglamour/?__pwa=1#" target="_blank" rel="noopener noreferrer" class="pure-logo-card vetra-spotlight-card" title="Glamour Fight Academy">
+          <div class="pure-logo-card vetra-spotlight-card" title="Glamour Fight Academy" onclick="openBrandModal(1)">
             <img src="assets/logos/logo-glamour-fight-academy.png" alt="Glamour Fight Academy" class="pure-logo-img logo-white-bg" loading="lazy">
-          </a>
+          </div>
 
-          <!-- 3. Sumo Car Rental Bali -->
-          <a href="https://instagram.com/sumo.balirent" target="_blank" rel="noopener noreferrer" class="pure-logo-card vetra-spotlight-card" title="Sumo Rental Bali">
+          <div class="pure-logo-card vetra-spotlight-card" title="Sumo Rental Bali" onclick="openBrandModal(2)">
             <img src="assets/logos/logo-sumo-rental.png" alt="Sumo Rental Bali" class="pure-logo-img logo-white-bg" loading="lazy">
-          </a>
+          </div>
 
-          <!-- 4. Chery Bali -->
-          <a href="https://instagram.com/cherybali" target="_blank" rel="noopener noreferrer" class="pure-logo-card vetra-spotlight-card" title="Chery Bali">
+          <div class="pure-logo-card vetra-spotlight-card" title="Chery Bali" onclick="openBrandModal(3)">
             <img src="assets/logos/logo-chery-bali.png" alt="Chery Bali" class="pure-logo-img logo-dark-bg" loading="lazy">
-          </a>
+          </div>
 
-          <!-- 5. Ensugi Holding -->
-          <a href="https://www.instagram.com/ensugi.id/?__pwa=1#" target="_blank" rel="noopener noreferrer" class="pure-logo-card vetra-spotlight-card" title="Ensugi Holding">
+          <div class="pure-logo-card vetra-spotlight-card" title="Ensugi Holding" onclick="openBrandModal(4)">
             <img src="assets/logos/logo-ensugi-holding.png" alt="Ensugi Holding" class="pure-logo-img logo-dark-bg" loading="lazy">
-          </a>
+          </div>
 
-          <!-- 6. Treven Collection -->
-          <a href="https://www.instagram.com/trevencollection/?__pwa=1#" target="_blank" rel="noopener noreferrer" class="pure-logo-card vetra-spotlight-card" title="Treven Collection">
+          <div class="pure-logo-card vetra-spotlight-card" title="Treven Collection" onclick="openBrandModal(5)">
             <img src="assets/logos/logo-treven-collection.png" alt="Treven Collection" class="pure-logo-img logo-white-bg" loading="lazy">
-          </a>
+          </div>
 
-          <!-- 7. Warung Cukur by deft barber -->
-          <div class="pure-logo-card vetra-spotlight-card" title="Warung Cukur by deft barber">
+          <div class="pure-logo-card vetra-spotlight-card" title="Warung Cukur by deft barber" onclick="openBrandModal(6)">
             <img src="assets/logos/logo-warung-cukur.png" alt="Warung Cukur" class="pure-logo-img logo-dark-bg" loading="lazy">
           </div>
 
-          <!-- 8. Hamparan Project -->
-          <div class="pure-logo-card vetra-spotlight-card" title="Hamparan Project">
+          <div class="pure-logo-card vetra-spotlight-card" title="Hamparan Project" onclick="openBrandModal(7)">
             <img src="assets/logos/logo-hamparan-project.png" alt="Hamparan Project" class="pure-logo-img logo-white-bg" loading="lazy">
           </div>
 
-          <!-- 9. AZ Project -->
-          <div class="pure-logo-card vetra-spotlight-card" title="AZ Project">
+          <div class="pure-logo-card vetra-spotlight-card" title="AZ Project" onclick="openBrandModal(8)">
             <img src="assets/logos/logo-az-circle.png" alt="AZ Project" class="pure-logo-img logo-white-bg" loading="lazy">
           </div>
 
         </div>
       </div>
     </section>
+
+    <!-- ==================== BRAND DETAIL MODAL ==================== -->
+    <div class="modal-overlay" id="brand-modal" role="dialog" aria-modal="true" aria-labelledby="brand-modal-title">
+      <div class="modal-card brand-modal-card">
+        <button type="button" class="modal-close-btn" id="brand-modal-close" aria-label="Tutup Dialog">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="brand-modal-body">
+          <div class="brand-modal-logo-wrap" id="brand-modal-logo-wrap"></div>
+          <h3 class="brand-modal-name" id="brand-modal-title">—</h3>
+          <span class="brand-modal-category" id="brand-modal-category"></span>
+          <div class="brand-modal-handle" id="brand-modal-handle"></div>
+          <p class="brand-modal-desc" id="brand-modal-desc"></p>
+          <div class="brand-modal-tags" id="brand-modal-tags"></div>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-framer-primary brand-modal-ig-btn" id="brand-modal-ig-link">
+            <i class="fab fa-instagram"></i>
+            <span>Buka Instagram</span>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- ==================== TECH MARQUEE ==================== -->
     <div class="tech-marquee-bar" id="skills" aria-label="Keahlian & Perangkat Lunak">

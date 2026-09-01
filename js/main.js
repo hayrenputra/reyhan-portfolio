@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCopyEmail();
   setupThemeToggle();
   setupProjectModal();
+  setupBrandModal();
   setupContactForm();
   setupNavigation();
   setupMobileMenu();
@@ -318,4 +319,163 @@ function showToast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* =========================================================================
+   BRAND DETAIL MODAL — Klik Logo = Popup Penjelasan Lengkap
+   ========================================================================= */
+
+const brandDetails = [
+  {
+    name: "Arena Glamour Sports Center",
+    category: "Sports Center & Event Organizer",
+    handle: "@arenaglamour",
+    url: "https://www.instagram.com/arenaglamour/",
+    logo: "assets/logos/logo-arena-glamour.png",
+    logoClass: "logo-white-bg",
+    desc: "Pembuatan poster digital jadwal acara musik & hiburan, teaser visual line-up pengisi acara, dokumentasi story interaktif, dan materi promosi event pertandingan olahraga.",
+    tags: ["Event Poster", "Sports Center", "Teaser Video", "Entertainment"]
+  },
+  {
+    name: "Glamour Fight Academy",
+    category: "Martial Arts Academy (AG)",
+    handle: "@arenaglamour",
+    url: "https://www.instagram.com/arenaglamour/",
+    logo: "assets/logos/logo-glamour-fight-academy.png",
+    logoClass: "logo-white-bg",
+    desc: "Desain visual promosi kelas bela diri, poster turnamen internal, highlight atlet, dan konten story Instagram untuk menarik peserta baru.",
+    tags: ["Martial Arts", "Poster Design", "Social Media", "Highlight Reel"]
+  },
+  {
+    name: "Sumo Rental Bali",
+    category: "Car Rental Bali",
+    handle: "@sumo.balirent",
+    url: "https://instagram.com/sumo.balirent",
+    logo: "assets/logos/logo-sumo-rental.png",
+    logoClass: "logo-white-bg",
+    desc: "Materi feed promosi sewa mobil lepas kunci & driver di Bali, highlight unit kendaraan, pricelist visual, serta story engagement testimoni pelanggan.",
+    tags: ["Car Rental Bali", "Visual Marketing", "Feed Design", "Story Promo"]
+  },
+  {
+    name: "Chery Dwipa Bali",
+    category: "Otomotif & Dealer Resmi",
+    handle: "@cherybali",
+    url: "https://instagram.com/cherybali",
+    logo: "assets/logos/logo-chery-bali.png",
+    logoClass: "logo-dark-bg",
+    desc: "Desain promosi dealer resmi mobil Chery Bali, spesifikasi unit SUV, pricelist visual, dan materi event pameran showroom.",
+    tags: ["Automotive", "Feed Design", "Pricelist", "Event Promo"]
+  },
+  {
+    name: "Ensugi Holding",
+    category: "Corporate Holding",
+    handle: "@ensugi.id",
+    url: "https://www.instagram.com/ensugi.id/",
+    logo: "assets/logos/logo-ensugi-holding.png",
+    logoClass: "logo-dark-bg",
+    desc: "Perancangan identitas visual korporat, infografis capaian bisnis, publikasi unit usaha holding, dan penjagaan standar brand guideline perusahaan.",
+    tags: ["Corporate Identity", "Infographic", "Social Media Kit", "Brand Guideline"]
+  },
+  {
+    name: "Treven Collection",
+    category: "Fashion & Lifestyle",
+    handle: "@trevencollection",
+    url: "https://www.instagram.com/trevencollection/",
+    logo: "assets/logos/logo-treven-collection.png",
+    logoClass: "logo-white-bg",
+    desc: "Konsep visual feed fashion estetis, katalog produk pakaian, layout story peluncuran koleksi baru, dan materi diskon musiman.",
+    tags: ["Fashion Catalog", "Aesthetic Feed", "Product Shoot", "Story Design"]
+  },
+  {
+    name: "Warung Cukur by deft barber",
+    category: "Barbershop & Grooming",
+    handle: "@warungcukur",
+    url: "#",
+    logo: "assets/logos/logo-warung-cukur.png",
+    logoClass: "logo-dark-bg",
+    desc: "Desain visual branding barbershop, konten promosi layanan potong rambut, story Instagram harian, dan materi promo paket grooming.",
+    tags: ["Barbershop", "Branding", "Story Promo", "Grooming"]
+  },
+  {
+    name: "Hamparan Project",
+    category: "Creative Project",
+    handle: "@hamparanproject",
+    url: "#",
+    logo: "assets/logos/logo-hamparan-project.png",
+    logoClass: "logo-white-bg",
+    desc: "Pembuatan identitas visual project kreatif, desain logo, aset grafis media sosial, dan konten promosi digital.",
+    tags: ["Creative Project", "Logo Design", "Digital Content", "Visual Identity"]
+  },
+  {
+    name: "AZ Project",
+    category: "Creative Studio",
+    handle: "@azproject",
+    url: "#",
+    logo: "assets/logos/logo-az-circle.png",
+    logoClass: "logo-white-bg",
+    desc: "Desain visual branding studio kreatif, pembuatan materi promosi event, konten feeds Instagram, dan konsep visual marketing.",
+    tags: ["Studio Branding", "Event Promo", "Feed Design", "Visual Marketing"]
+  }
+];
+
+function openBrandModal(index) {
+  const brand = brandDetails[index];
+  if (!brand) return;
+
+  const modal = document.getElementById('brand-modal');
+  const logoWrap = document.getElementById('brand-modal-logo-wrap');
+  const titleEl = document.getElementById('brand-modal-title');
+  const catEl = document.getElementById('brand-modal-category');
+  const handleEl = document.getElementById('brand-modal-handle');
+  const descEl = document.getElementById('brand-modal-desc');
+  const tagsEl = document.getElementById('brand-modal-tags');
+  const igLink = document.getElementById('brand-modal-ig-link');
+
+  // Logo
+  logoWrap.innerHTML = `<img src="${escapeHTML(brand.logo)}" alt="${escapeHTML(brand.name)}" class="brand-modal-logo ${escapeHTML(brand.logoClass)}">`;
+
+  // Title & Category
+  titleEl.textContent = brand.name;
+  catEl.textContent = brand.category;
+
+  // Handle
+  handleEl.innerHTML = `<i class="fab fa-instagram"></i> <span>${escapeHTML(brand.handle)}</span>`;
+
+  // Description
+  descEl.textContent = brand.desc;
+
+  // Tags
+  tagsEl.innerHTML = brand.tags.map(t => `<span class="brand-modal-tag">${escapeHTML(t)}</span>`).join('');
+
+  // Instagram link
+  if (brand.url && brand.url !== '#') {
+    igLink.href = brand.url;
+    igLink.style.display = 'inline-flex';
+  } else {
+    igLink.style.display = 'none';
+  }
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function setupBrandModal() {
+  const modal = document.getElementById('brand-modal');
+  const closeBtn = document.getElementById('brand-modal-close');
+  if (!modal) return;
+
+  function closeBrandModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeBrandModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeBrandModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeBrandModal();
+  });
 }

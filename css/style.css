@@ -1011,6 +1011,103 @@ button, input, textarea {
   mix-blend-mode: multiply;
 }
 
+/* ==================== BRAND DETAIL MODAL ==================== */
+.brand-modal-card {
+  max-width: 520px;
+  text-align: center;
+}
+
+.brand-modal-body {
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-modal-logo-wrap {
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--rounded-lg);
+  padding: 14px;
+  margin-bottom: 4px;
+}
+
+.brand-modal-logo {
+  max-width: 90px;
+  max-height: 55px;
+  object-fit: contain;
+}
+
+.brand-modal-name {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.brand-modal-category {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: 0.04em;
+  background: var(--color-primary-glow);
+  padding: 4px 12px;
+  border-radius: var(--rounded-full);
+  border: 1px solid rgba(0, 102, 255, 0.25);
+}
+
+.brand-modal-handle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-body);
+}
+
+.brand-modal-handle i {
+  color: #E1306C;
+  font-size: 14px;
+}
+
+.brand-modal-desc {
+  font-size: 14px;
+  color: var(--color-body);
+  line-height: 1.65;
+  max-width: 420px;
+  margin: 4px 0 8px;
+}
+
+.brand-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.brand-modal-tag {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-ink);
+  background: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  padding: 4px 10px;
+  border-radius: var(--rounded-full);
+}
+
+.brand-modal-ig-btn {
+  margin-top: 4px;
+  gap: 6px;
+}
+
 /* ==================== TICKER MARQUEE ==================== */
 .tech-marquee-bar {
   background: var(--color-surface);
