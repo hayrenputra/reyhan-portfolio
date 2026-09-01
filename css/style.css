@@ -791,7 +791,158 @@ button, input, textarea {
   color: var(--color-primary);
 }
 
-/* ==================== PURE MONOCHROME LOGO TILES (HANYA LOGO SAJA) ==================== */
+/* ==================== SOCIAL CLIENT LOGO CARDS ==================== */
+.social-clients-section {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.social-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.social-client-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--rounded-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.social-client-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.social-client-logo-stage {
+  position: relative;
+  min-height: 190px;
+  padding: 56px 34px 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 42%),
+    radial-gradient(circle at 78% 18%, rgba(0, 102, 255, 0.16), transparent 34%),
+    var(--color-surface-raised);
+  border-bottom: 1px solid var(--color-border);
+}
+
+[data-theme="light"] .social-client-logo-stage {
+  background:
+    linear-gradient(135deg, rgba(0, 102, 255, 0.08), transparent 44%),
+    radial-gradient(circle at 78% 18%, rgba(0, 102, 255, 0.08), transparent 34%),
+    #FFFFFF;
+}
+
+.social-client-logo-stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 22px 22px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+}
+
+[data-theme="light"] .social-client-logo-stage::after {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.12), transparent);
+}
+
+.social-client-category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--rounded-full);
+  padding: 4px 10px;
+  backdrop-filter: blur(8px);
+}
+
+.social-client-logo {
+  width: auto;
+  max-width: min(250px, 82%);
+  max-height: 92px;
+  object-fit: contain;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.social-client-card:hover .social-client-logo {
+  transform: scale(1.05);
+}
+
+.social-client-content {
+  padding: 24px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.social-client-handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.social-client-handle i {
+  color: #E1306C;
+}
+
+.social-client-arrow {
+  font-size: 11px;
+}
+
+.social-client-name {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+  color: var(--color-ink);
+  margin-bottom: 10px;
+}
+
+.social-client-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-body);
+  margin-bottom: 22px;
+}
+
+.social-client-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.social-client-tags span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-primary);
+  background: var(--color-primary-glow);
+  border: 1px solid rgba(0, 102, 255, 0.28);
+  border-radius: var(--rounded-xs);
+  padding: 4px 10px;
+}
+
+/* ==================== PURE MONOCHROME LOGO TILES (LEGACY) ==================== */
 .brand-logos-pure-section {
   padding: 60px 0;
   border-bottom: 1px solid var(--color-border);
@@ -1416,6 +1567,9 @@ button, input, textarea {
   .brand-pure-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .social-clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .about-grid {
     grid-template-columns: 1fr;
   }
@@ -1459,6 +1613,23 @@ button, input, textarea {
   .brand-pure-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+  .social-clients-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .social-client-card {
+    min-height: 0;
+  }
+  .social-client-logo-stage {
+    min-height: 150px;
+    padding: 46px 24px 30px;
+  }
+  .social-client-logo {
+    max-height: 74px;
+  }
+  .social-client-content {
+    padding: 20px;
   }
   .pure-logo-card {
     height: 95px;

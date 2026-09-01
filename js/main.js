@@ -124,6 +124,8 @@ function escapeHTML(str) {
   );
 }
 
+
+
 /* --- Theme Toggle Controller (Framer Dark / Light) --- */
 function setupThemeToggle() {
   const btn = document.getElementById('theme-toggle');

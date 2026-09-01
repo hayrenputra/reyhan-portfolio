@@ -31,52 +31,57 @@ const portfolioData = {
     { name: "Email", url: "mailto:syahputraakbar0702@gmail.com", icon: "fas fa-envelope", handle: "syahputraakbar0702@gmail.com" },
   ],
 
-  // --- Klien Instagram & Social Media Management (Aesthetic Backgrounds) ---
+  // --- Klien Instagram & Social Media Management (Logo Cards) ---
   socialClients: [
     {
       name: "Sumo Rental Bali",
       handle: "@sumo.balirent",
-      category: "Car Rental & Travel Bali",
+      category: "Car Rental Bali",
       desc: "Pengelolaan konten visual feed, story promosi sewa mobil lepas kunci & driver di Bali, katalog armada kendaraan, dan highlight testimoni pelanggan.",
       url: "https://instagram.com/sumo.balirent",
-      image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80",
-      tag: "Social Media & Visual Marketing"
+      logo: "assets/logos/logo-sumo-rental.png",
+      logoClass: "logo-white-bg",
+      tags: ["Visual Marketing", "Feed Design"]
     },
     {
       name: "Chery Dwipa Bali",
       handle: "@cherybali",
-      category: "Automotive & Dealership Bali",
+      category: "Otomotif & Dealer",
       desc: "Desain visual promosi otomotif dealer resmi Chery di Bali, informasi spesifikasi unit SUV, pricelist interaktif, dan materi promosi event showroom.",
       url: "https://instagram.com/cherybali",
-      image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80",
-      tag: "Automotive Branding & Feed Design"
+      logo: "assets/logos/logo-chery-bali.png",
+      logoClass: "logo-dark-bg",
+      tags: ["Automotive", "Feed Design"]
     },
     {
       name: "Treven Collection",
       handle: "@trevencollection",
-      category: "Fashion & Lifestyle Brand",
+      category: "Fashion Brand",
       desc: "Konseptualisasi tema visual feeds, katalog fashion produk pakaian, layout story peluncuran koleksi baru, dan materi diskon musiman.",
       url: "https://www.instagram.com/trevencollection/?__pwa=1#",
-      image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80",
-      tag: "Fashion Catalog & Aesthetic Feed"
+      logo: "assets/logos/logo-treven-collection.png",
+      logoClass: "logo-white-bg",
+      tags: ["Fashion Catalog", "Aesthetic Feed"]
     },
     {
       name: "Arena Glamour",
       handle: "@arenaglamour",
-      category: "Entertainment & Event Organizer",
+      category: "Event Organizer",
       desc: "Pembuatan poster digital acara, visual teaser jadwal event hiburan, poster pengumuman line-up pengisi acara, dan dokumentasi story.",
       url: "https://www.instagram.com/arenaglamour/?__pwa=1#",
-      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
-      tag: "Event Poster & Entertainment"
+      logo: "assets/logos/logo-arena-glamour.png",
+      logoClass: "logo-white-bg",
+      tags: ["Event Poster", "Entertainment"]
     },
     {
       name: "Ensugi Holding",
       handle: "@ensugi.id",
-      category: "Corporate & Holding Company",
+      category: "Corporate Holding",
       desc: "Perancangan identitas visual korporat, infografis capaian bisnis, publikasi unit usaha holding, dan penjagaan standar brand guideline perusahaan.",
       url: "https://www.instagram.com/ensugi.id/?__pwa=1#",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-      tag: "Corporate Identity & Social Media Kit"
+      logo: "assets/logos/logo-ensugi-holding.png",
+      logoClass: "logo-dark-bg",
+      tags: ["Corporate Identity", "Social Media Kit"]
     }
   ],
 
